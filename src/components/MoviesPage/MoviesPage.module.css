@@ -1,0 +1,40 @@
+.button {
+  text-decoration: none;
+  padding-top: 14px;
+  padding-bottom: 14px;
+
+  width: 136px;
+
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.1;
+
+  background-color: #ffffff;
+  color: #000000;
+
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+.button span {
+  display: block;
+}
+
+.button:focus,
+.button:hover {
+  cursor: pointer;
+  background-color: #ff6b01;
+  color: #ffffff;
+  border: 1px solid #ff6b01;
+}
+
+.button:not(:last-child) {
+  margin-right: 20px;
+}
+
+.current {
+  background-color: #ff6b01;
+  color: #ffffff;
+  border: 1px solid #ff6b01;
+}
