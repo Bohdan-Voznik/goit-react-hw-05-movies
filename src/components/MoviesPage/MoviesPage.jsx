@@ -18,6 +18,7 @@ import { Container } from 'components/Container/Container';
 import { Header } from 'components/Header/Header';
 import { Footer } from 'components/Footer/Footer';
 import { BackButton } from 'components/BackButton/BackButton';
+import { Default } from './Default/Default';
 
 import { fetchMovieById } from 'js/fechAPI';
 
@@ -71,7 +72,7 @@ export default function MoviesPage() {
         </Container>
       </Section>
 
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Default text="Loading..." />}>
         <Routes>
           <Route path="cast" element={<Cast title={title} />} />
           <Route path="reviews" element={<Reviews title={title} />} />
