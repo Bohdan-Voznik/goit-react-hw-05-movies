@@ -8,7 +8,7 @@ import { Default } from 'components/MoviesPage/Default/Default';
 
 import { fetchReviews } from 'js/fechAPI';
 
-export const Reviews = ({ title }) => {
+export default function Reviews({ title }) {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
 
@@ -38,7 +38,7 @@ export const Reviews = ({ title }) => {
       </Container>
     </Section>
   );
-};
+}
 
 Reviews.propTypes = {
   title: PropTypes.string.isRequired,

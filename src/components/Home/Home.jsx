@@ -7,7 +7,7 @@ import { Footer } from 'components/Footer/Footer';
 
 import { fetchTrending } from 'js/fechAPI';
 
-export const Home = () => {
+export default function Home() {
   const [films, setFilms] = useState([]);
 
   useEffect(() => {
@@ -21,4 +21,4 @@ export const Home = () => {
       <Footer />
     </>
   );
-};
+}

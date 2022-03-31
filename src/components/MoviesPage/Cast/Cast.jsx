@@ -10,7 +10,7 @@ import { Default } from 'components/MoviesPage/Default/Default';
 
 import { fetchCast } from 'js/fechAPI';
 
-export const Cast = ({ title }) => {
+export default function Cast({ title }) {
   const { movieId } = useParams();
   const [actors, setActors] = useState([]);
 
@@ -42,7 +42,7 @@ export const Cast = ({ title }) => {
       </Container>
     </Section>
   );
-};
+}
 
 Cast.ptopType = {
   title: PropTypes.string.isRequired,

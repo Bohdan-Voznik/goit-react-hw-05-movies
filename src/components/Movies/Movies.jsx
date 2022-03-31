@@ -8,7 +8,7 @@ import { Footer } from 'components/Footer/Footer';
 
 import { fetchMoviesByTag } from 'js/fechAPI';
 
-export const Movies = () => {
+export default function Movies() {
   const [serchParams, setSerchParams] = useSearchParams();
 
   const [serchQuery, setSerchQuery] = useState('');
@@ -16,8 +16,8 @@ export const Movies = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-      setSerchQuery(serchParams.get('query') || '');
-  }, [serchParams ]);
+    setSerchQuery(serchParams.get('query') || '');
+  }, [serchParams]);
 
   useEffect(() => {
     if (serchQuery === '') {
@@ -56,4 +56,4 @@ export const Movies = () => {
       <Footer />
     </>
   );
-};
+}

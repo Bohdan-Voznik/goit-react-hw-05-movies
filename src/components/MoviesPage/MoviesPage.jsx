@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { Route, Routes, useParams, useLocation } from 'react-router-dom';
 
 import {
@@ -16,14 +16,15 @@ import {
 
 import { Container } from 'components/Container/Container';
 import { Header } from 'components/Header/Header';
-import { Cast } from 'components/MoviesPage/Cast/Cast';
-import { Reviews } from 'components/MoviesPage/Reviews/Reviews';
 import { Footer } from 'components/Footer/Footer';
 import { BackButton } from 'components/BackButton/BackButton';
 
 import { fetchMovieById } from 'js/fechAPI';
 
-export const MoviesPage = () => {
+const Cast = lazy(() => import('components/MoviesPage/Cast/Cast'));
+const Reviews = lazy(() => import('components/MoviesPage/Reviews/Reviews'));
+
+export default function MoviesPage() {
   const location = useLocation();
   const { movieId } = useParams();
   const [film, setFilm] = useState({});
@@ -70,13 +71,15 @@ export const MoviesPage = () => {
         </Container>
       </Section>
 
-      <Routes>
-        <Route path="cast" element={<Cast title={title} />} />
-        <Route path="reviews" element={<Reviews title={title} />} />
-      </Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="cast" element={<Cast title={title} />} />
+          <Route path="reviews" element={<Reviews title={title} />} />
+        </Routes>
+      </Suspense>
 
       <Footer />
       {location.state !== null && <BackButton />}
     </>
   );
-};
+}
